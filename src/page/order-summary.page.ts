@@ -1,13 +1,13 @@
-import { $, ElementFinder } from 'protractor';
+import { $, ElementFinder, promise } from 'protractor';
 
 export class OrderSummaryPage {
-  private element: ElementFinder;
+  private acceptBtn: ElementFinder;
 
   constructor () {
-    this.element = $('.cart_navigation span');
+    this.acceptBtn = $('.cart_navigation span');
   }
 
-  public async goToSummary(): Promise<void> {
-    await this.element.click();
+  public goToSummary(): promise.Promise<void> {
+    return this.acceptBtn.click();
   }
 }

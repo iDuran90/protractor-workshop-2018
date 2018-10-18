@@ -1,13 +1,13 @@
-import { $, ElementFinder } from 'protractor';
+import { $, ElementFinder, promise } from 'protractor';
 
 export class ProductListPage {
-  private element: ElementFinder;
+  private addCartBtn: ElementFinder;
 
   constructor () {
-    this.element = $('#center_column a.button.ajax_add_to_cart_button.btn.btn-default');
+    this.addCartBtn = $('#center_column a.button.ajax_add_to_cart_button.btn.btn-default');
   }
 
-  public async selectProduct(): Promise<void> {
-    await this.element.click();
+  public selectProduct(): promise.Promise<void> {
+    return this.addCartBtn.click();
   }
 }

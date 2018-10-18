@@ -1,13 +1,13 @@
-import { $, ElementFinder } from 'protractor';
+import { $, ElementFinder, promise } from 'protractor';
 
 export class PaymentStepPage {
-  private element: ElementFinder;
+  private paymentBtn: ElementFinder;
 
   constructor () {
-    this.element = $('#form > p > button > span');
+    this.paymentBtn = $('#form > p > button > span');
   }
 
-  public async paymentStep(): Promise<void> {
-    await this.element.click();
+  public paymentStep(): promise.Promise<void> {
+    return this.paymentBtn.click();
   }
 }
