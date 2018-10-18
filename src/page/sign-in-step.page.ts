@@ -14,6 +14,7 @@ export class SignInStepPage {
   public async sendLogin(email: string, pass: string): Promise<void> {
     await this.email.sendKeys(email);
     await this.pass.sendKeys(pass);
-    await this.submit.click();
+
+    return this.submit.click();
   }
 }

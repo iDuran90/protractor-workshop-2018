@@ -1,13 +1,13 @@
-import { $, ElementFinder } from 'protractor';
+import { $, ElementFinder, promise } from 'protractor';
 
 export class ProductAddedPage {
-  private element: ElementFinder;
+  private acceptProdutsBtn: ElementFinder;
 
   constructor () {
-    this.element = $('[style*="display: block;"] .button-container > a');
+    this.acceptProdutsBtn = $('[style*="display: block;"] .button-container > a');
   }
 
-  public async closeModal(): Promise<void> {
-    await this.element.click();
+  public closeModal(): promise.Promise<void> {
+    return this.acceptProdutsBtn.click();
   }
 }
