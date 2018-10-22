@@ -28,6 +28,7 @@ describe('Buy a t-shirt', () => {
     await browser.get('http://automationpractice.com/');
     await menuContentPage.goToTShirtMenu();
     await productListPage.selectProduct();
+    await(browser.sleep(1000));
     await productAddedPage.closeModal();
     await orderSummaryPage.goToSummary();
     await signInStepPage.sendLogin('aperdomobo@gmail.com', 'WorkshopProtractor');
