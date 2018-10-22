@@ -14,7 +14,8 @@ export const config: Config = {
   capabilities: {
     browserName: 'chrome',
     chromeOptions: {
-      args: ['--window-size=1024,768']
+      args: ['disable-infobars=true', '--window-size=1024,768'],
+      prefs: { credentials_enable_service: false }
     }
   },
   jasmineNodeOpts: {
