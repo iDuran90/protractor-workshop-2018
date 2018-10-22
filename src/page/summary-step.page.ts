@@ -5,8 +5,8 @@ export class SummaryStepPage {
   private textContainer: ElementFinder;
 
   constructor () {
-    this.buyBtn = $('#cart_navigation > button > span');
-    this.textContainer = $('#center_column > div > p > strong');
+    this.buyBtn = $('#cart_navigation > button');
+    this.textContainer = $('#center_column p strong');
   }
 
   public goToSummary(): promise.Promise<void> {

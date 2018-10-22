@@ -4,7 +4,7 @@ export class PaymentStepPage {
   private paymentBtn: ElementFinder;
 
   constructor () {
-    this.paymentBtn = $('#form > p > button > span');
+    this.paymentBtn = $('#form button');
   }
 
   public paymentStep(): promise.Promise<void> {

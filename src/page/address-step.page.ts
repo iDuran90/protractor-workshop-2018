@@ -4,7 +4,7 @@ export class AddressStepPage {
   private button: ElementFinder;
 
   constructor () {
-    this.button = $('#center_column > form > p > button > span');
+    this.button = $('#center_column form button');
   }
 
   public addressStep(): promise.Promise<void> {
