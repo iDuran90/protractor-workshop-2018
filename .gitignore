@@ -114,5 +114,8 @@ Temporary Items
 # Typescript
 dist
 
+# Reports
+reports
+
 # End of https://www.gitignore.io/api/osx,node,visualstudiocode
 
