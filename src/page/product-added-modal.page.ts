@@ -1,4 +1,9 @@
-import { $, ElementFinder } from 'protractor';
+import {
+  $,
+  browser,
+  ElementFinder,
+  ExpectedConditions
+} from 'protractor';
 
 export class ProductAddedPage {
   private acceptProductsBtn: ElementFinder;
@@ -11,7 +16,7 @@ export class ProductAddedPage {
     await this.acceptProductsBtn.click();
   }
 
-  public getButton(): ElementFinder {
-    return this.acceptProductsBtn;
+  public async expectButton(): Promise<void> {
+    await browser.wait(ExpectedConditions.elementToBeClickable(this.acceptProductsBtn), 3000);
   }
 }
