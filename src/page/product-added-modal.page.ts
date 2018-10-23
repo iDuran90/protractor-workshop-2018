@@ -1,4 +1,4 @@
-import { $, ElementFinder, promise } from 'protractor';
+import { $, ElementFinder } from 'protractor';
 
 export class ProductAddedPage {
   private acceptProductsBtn: ElementFinder;
@@ -7,8 +7,8 @@ export class ProductAddedPage {
     this.acceptProductsBtn = $('[style*="display: block;"] .button-container > a');
   }
 
-  public closeModal(): promise.Promise<void> {
-    return this.acceptProductsBtn.click();
+  public async closeModal(): Promise<void> {
+    await this.acceptProductsBtn.click();
   }
 
   public getButton(): ElementFinder {
