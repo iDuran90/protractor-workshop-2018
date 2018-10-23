@@ -4,7 +4,7 @@ export class BankPaymentPage {
   private paymentLink: ElementFinder;
 
   constructor () {
-    this.paymentLink = $('#HOOK_PAYMENT > div:nth-child(1) > div > p > a');
+    this.paymentLink = $('#HOOK_PAYMENT a.bankwire');
   }
 
   public bankPayment(): promise.Promise<void> {
