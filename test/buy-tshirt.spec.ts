@@ -1,4 +1,4 @@
-import { browser } from 'protractor';
+import { browser, ExpectedConditions } from 'protractor';
 import {
   AddressStepPage,
   BankPaymentPage,
@@ -28,6 +28,7 @@ describe('Buy a t-shirt', () => {
     await browser.get('http://automationpractice.com/');
     await menuContentPage.goToTShirtMenu();
     await productListPage.selectProduct();
+    await browser.wait(ExpectedConditions.elementToBeClickable(productAddedPage.getButton()), 5000);
     await productAddedPage.closeModal();
     await orderSummaryPage.goToSummary();
     await signInStepPage.sendLogin('aperdomobo@gmail.com', 'WorkshopProtractor');
