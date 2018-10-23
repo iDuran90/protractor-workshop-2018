@@ -1,4 +1,4 @@
-import { browser, ExpectedConditions } from 'protractor';
+import { browser } from 'protractor';
 import {
   AddressStepPage,
   BankPaymentPage,
@@ -33,7 +33,7 @@ describe('Buy a t-shirt', () => {
       beforeAll(async () => {
         await menuContentPage.goToTShirtMenu();
         await productListPage.selectProduct();
-        await browser.wait(ExpectedConditions.elementToBeClickable(productAddedPage.getButton()), 5000);
+        await productAddedPage.expectButton();
         await productAddedPage.closeModal();
         await orderSummaryPage.goToSummary();
       });
