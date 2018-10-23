@@ -33,7 +33,7 @@ describe('Buy a t-shirt', () => {
       beforeAll(async () => {
         await menuContentPage.goToTShirtMenu();
         await productListPage.selectProduct();
-        await(browser.sleep(1000));
+        await productAddedPage.expectButton();
         await productAddedPage.closeModal();
         await orderSummaryPage.goToSummary();
       });

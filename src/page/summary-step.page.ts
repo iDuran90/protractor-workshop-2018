@@ -6,7 +6,7 @@ export class SummaryStepPage {
 
   constructor () {
     this.buyBtn = $('#cart_navigation > button');
-    this.textContainer = $('#center_column p strong');
+    this.textContainer = $('.cheque-indent');
   }
 
   public goToSummary(): promise.Promise<void> {
