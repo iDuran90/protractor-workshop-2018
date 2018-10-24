@@ -32,7 +32,7 @@ describe('Buy a t-shirt', () => {
     describe('Add t-shirt to cart and proceed to checkout', async () => {
       beforeAll(async () => {
         await menuContentPage.goToTShirtMenu();
-        await productListPage.selectProduct();
+        await productListPage.selectProduct('Faded Short Sleeve T-shirts');
         await productAddedPage.expectButton();
         await productAddedPage.closeModal();
         await orderSummaryPage.goToSummary();
