@@ -2,6 +2,7 @@ import { browser, element, by, ElementFinder, ElementArrayFinder } from 'protrac
 import { resolve } from 'path';
 import { existsSync } from 'fs';
 import * as remote from 'selenium-webdriver/remote';
+import { DownloadService } from './../service';
 
 export class PersonalInformationPage {
   private firstName: ElementFinder;
@@ -11,6 +12,7 @@ export class PersonalInformationPage {
   private commandOptions: ElementArrayFinder;
   // private continents: ElementArrayFinder;
   private uploadPhoto: ElementFinder;
+  private downloadLink: ElementFinder;
 
   constructor () {
     this.firstName = element(by.name('firstname'));
@@ -20,6 +22,7 @@ export class PersonalInformationPage {
     this.commandOptions = element.all(by.css('#selenium_commands option'));
     // this.continents = $$('#continents option');
     this.uploadPhoto = element(by.id('photo'));
+    this.downloadLink = element(by.linkText('Test File to Download'));
 
   }
 
@@ -69,6 +72,13 @@ export class PersonalInformationPage {
     }
   }
 
+  private async download(): Promise<void> {
+    const link = await this.downloadLink.getAttribute('href');
+
+    const service = new DownloadService();
+    await service.downloadFile(link, 'test-document.xlsx');
+  }
+
   public async fillForm(personalInformation: any): Promise<void> {
     await this.firstName.sendKeys(personalInformation.firstName);
     await this.lastName.sendKeys(personalInformation.lastName);
@@ -81,6 +91,10 @@ export class PersonalInformationPage {
     await this.selectCommands(personalInformation.commands);
 
     await this.uploadFile(personalInformation.file);
+
+    if (personalInformation.downloadFile) {
+      await this.download();
+    }
   }
 
   public async submit(personalInformation: any): Promise<void> {
