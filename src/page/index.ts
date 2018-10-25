@@ -1,5 +1,6 @@
 export { AddressStepPage } from './address-step.page';
 export { BankPaymentPage } from './bank-payment.page';
+export { IFramePage } from './i-frame.page';
 export { MenuContentPage } from './menu-content.page';
 export { OrderSummaryPage } from './order-summary.page';
 export { PaymentStepPage } from './payment-step.page';
