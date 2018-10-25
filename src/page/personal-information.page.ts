@@ -1,4 +1,7 @@
-import { element, by, ElementFinder, ElementArrayFinder } from 'protractor';
+import { browser, element, by, ElementFinder, ElementArrayFinder } from 'protractor';
+import { resolve } from 'path';
+import { existsSync } from 'fs';
+import * as remote from 'selenium-webdriver/remote';
 
 export class PersonalInformationPage {
   private firstName: ElementFinder;
@@ -7,6 +10,7 @@ export class PersonalInformationPage {
   private textContainer: ElementFinder;
   private commandOptions: ElementArrayFinder;
   // private continents: ElementArrayFinder;
+  private uploadPhoto: ElementFinder;
 
   constructor () {
     this.firstName = element(by.name('firstname'));
@@ -15,6 +19,8 @@ export class PersonalInformationPage {
     this.textContainer = element(by.css('.wpb_text_column.wpb_content_element h1'));
     this.commandOptions = element.all(by.css('#selenium_commands option'));
     // this.continents = $$('#continents option');
+    this.uploadPhoto = element(by.id('photo'));
+
   }
 
   private async selectSex(sex: string): Promise<void> {
@@ -53,6 +59,16 @@ export class PersonalInformationPage {
     });
   }
 
+  private async uploadFile(relativePath: string): Promise<void> {
+    const fullPath = resolve(process.cwd(), relativePath);
+
+    if (existsSync(fullPath)) {
+      await browser.setFileDetector(new remote.FileDetector());
+      await this.uploadPhoto.sendKeys(fullPath);
+      await browser.setFileDetector(undefined);
+    }
+  }
+
   public async fillForm(personalInformation: any): Promise<void> {
     await this.firstName.sendKeys(personalInformation.firstName);
     await this.lastName.sendKeys(personalInformation.lastName);
@@ -64,10 +80,20 @@ export class PersonalInformationPage {
     // await this.selectContinent(personalInformation.continent);
     await this.selectCommands(personalInformation.commands);
 
+    await this.uploadFile(personalInformation.file);
+  }
+
+  public async submit(personalInformation: any): Promise<void> {
+    await this.fillForm(personalInformation);
+
     await this.submitBtn.click();
   }
 
   public async getResponse(): Promise<string> {
     return await this.textContainer.getText();
+  }
+
+  public async getFilename(): Promise<string> {
+    return await this.uploadPhoto.getAttribute('value');
   }
 }
