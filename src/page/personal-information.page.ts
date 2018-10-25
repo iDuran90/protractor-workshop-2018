@@ -1,4 +1,4 @@
-import { $, $$, ElementFinder, ElementArrayFinder } from 'protractor';
+import { element, by, ElementFinder, ElementArrayFinder } from 'protractor';
 
 export class PersonalInformationPage {
   private firstName: ElementFinder;
@@ -9,31 +9,31 @@ export class PersonalInformationPage {
   // private continents: ElementArrayFinder;
 
   constructor () {
-    this.firstName = $('input[name="firstname"]');
-    this.lastName = $('input[name="lastname"]');
-    this.submitBtn = $('button[name="submit"]');
-    this.textContainer = $('.wpb_text_column.wpb_content_element h1');
-    this.commandOptions = $$('#selenium_commands option');
+    this.firstName = element(by.name('firstname'));
+    this.lastName = element(by.name('lastname'));
+    this.submitBtn = element(by.id('submit'));
+    this.textContainer = element(by.css('.wpb_text_column.wpb_content_element h1'));
+    this.commandOptions = element.all(by.css('#selenium_commands option'));
     // this.continents = $$('#continents option');
   }
 
   private async selectSex(sex: string): Promise<void> {
-    await $(`input[value="${sex}"]`).click();
+    await element(by.css(`input[value="${sex}"]`)).click();
   }
 
   private async selectExperience(experience: string): Promise<void> {
-    await $(`input[value="${experience}"]`).click();
+    await element(by.css(`input[value="${experience}"]`)).click();
   }
 
   private async selectProfessions(professions: string[]): Promise<void> {
     for (const profession of professions) {
-      await $(`input[value="${profession}"]`).click();
+      await element(by.css(`input[value="${profession}"]`)).click();
     }
   }
 
   private async selectTools(tools: string[]): Promise<void> {
     for (const tool of tools) {
-      await $(`input[value="${tool}"]`).click();
+      await element(by.css(`input[value="${tool}"]`)).click();
     }
   }
 
