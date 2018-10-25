@@ -22,7 +22,7 @@ export class PersonalInformationPage {
     this.commandOptions = element.all(by.css('#selenium_commands option'));
     // this.continents = $$('#continents option');
     this.uploadPhoto = element(by.id('photo'));
-    this.downloadLink = element(by.linkText('Test File to Download'));
+    this.downloadLink = element(by.css('[href$=".xlsx"]'));
   }
 
   private async selectSex(sex: string): Promise<void> {
