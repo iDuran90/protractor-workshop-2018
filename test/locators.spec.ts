@@ -18,6 +18,7 @@ describe('Send personal information form', () => {
         profession: ['Automation Tester'],
         tools: ['Selenium Webdriver'],
         continent: 'South America',
+        file: './resources/logo.png',
         commands: [
           'Browser Commands',
           'Navigation Commands',
@@ -31,6 +32,11 @@ describe('Send personal information form', () => {
     it('Should response with title', async () => {
       await expect(personalInformationPage.getResponse())
         .toBe('Practice Automation Form');
+    });
+
+    it('Should have filename', async () => {
+      const filename = await personalInformationPage.getFilename();
+      expect(filename.indexOf('logo.png')).toBeGreaterThan(-1);
     });
   });
 });
