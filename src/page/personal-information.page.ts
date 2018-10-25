@@ -5,12 +5,16 @@ export class PersonalInformationPage {
   private lastName: ElementFinder;
   private submitBtn: ElementFinder;
   private textContainer: ElementFinder;
+  private commandOptions: ElementArrayFinder;
+  // private continents: ElementArrayFinder;
 
   constructor () {
     this.firstName = $('input[name="firstname"]');
     this.lastName = $('input[name="lastname"]');
     this.submitBtn = $('button[name="submit"]');
     this.textContainer = $('.wpb_text_column.wpb_content_element h1');
+    this.commandOptions = $$('#selenium_commands option');
+    // this.continents = $$('#continents option');
   }
 
   private async selectSex(sex: string): Promise<void> {
@@ -33,21 +37,17 @@ export class PersonalInformationPage {
     }
   }
 
-  private async selectContinent(continent: string): Promise<void> {
-    const commandOptions: ElementArrayFinder = $$('#continents option');
-
-    await commandOptions.each(async (element: ElementFinder) => {
-      if (continent === await element.getText()) {
-        await element.click();
-      }
-    });
-  }
+  // private async selectContinent(continent: string): Promise<void> {
+  //   await this.continents.each(async (element: ElementFinder) => {
+  //     if (continent === await element.getText()) {
+  //       await element.click();
+  //     }
+  //   });
+  // }
 
   private async selectCommands(commands: string[]): Promise<void> {
-    const commandOptions: ElementArrayFinder = $$('#selenium_commands option');
-
-    await commandOptions.each(async (element: ElementFinder) => {
-      if (commands.includes(await element.getText())) {
+    await this.commandOptions.each(async (element: ElementFinder) => {
+      if (commands.indexOf(await element.getText()) !== -1) {
         await element.click();
       }
     });
@@ -61,7 +61,7 @@ export class PersonalInformationPage {
     await this.selectExperience(personalInformation.experience);
     await this.selectProfessions(personalInformation.profession);
     await this.selectTools(personalInformation.tools);
-    await this.selectContinent(personalInformation.continent);
+    // await this.selectContinent(personalInformation.continent);
     await this.selectCommands(personalInformation.commands);
 
     await this.submitBtn.click();
