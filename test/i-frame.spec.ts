@@ -18,5 +18,31 @@ describe('Modify iFrame', () => {
         await expect(iFramePage.getFrameHeight()).toBe(100);
       });
     });
+
+    describe('When get main title', () => {
+      it('should get the correct title', async () => {
+        await expect(iFramePage.getMainTitle()).toBe('Sample Iframe page');
+      });
+
+      describe('When got to the frame', () => {
+        beforeAll(async () => {
+          await iFramePage.goToFrame();
+        });
+
+        it('should get the correct title', async () => {
+          await expect(iFramePage.getMainTitle()).toBe('Practice Automation Form');
+        });
+
+        describe('When back to main page', () => {
+          beforeAll(async () => {
+            await iFramePage.goToMainPage();
+          });
+
+          it('should get the correct title', async () => {
+            await expect(iFramePage.getMainTitle()).toBe('Sample Iframe page');
+          });
+        });
+      });
+    });
   });
 });
