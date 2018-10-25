@@ -3,7 +3,10 @@ addons:
   chrome: stable
 language: node_js
 node_js:
-  - "10"
+- '10'
 cache:
   directories:
-    - "node_modules"
+  - node_modules
+env:
+  global:
+    secure: c9x4+FY947nJQ5Glty1e5UcOdbMZWuBOKShO0VVs9MCqDzlR5qWUX6XihsYr8NmuFJMcj3HtcadzMq6vTR/tBYDMz7/hmYfsVxcWcqm2wzv1P1sgaAuZ28vZOqdTu302UHKppPmQLUIaa/rT8vXqkGw0uaQYuHLQ4yU5nj50oQMM8kjUpa3pDC3EQjSc+mLu7J8LCI9bVtbLklJxUdny6y/exhWawHN2VFUtcSQ/H7Nf+cJbfOI+HiPAIX0dPM3MGnbGcVOQA6e2RCppSSsqeb5vEuClIzyLE/q+OMYQZYYO21Rs90a5QDS7QdmPsh+2vRiN38fBnyypDnC5kKJrwU8+KcSu934E470sGFp3OwJL3SZnbwCKbZQQNEF4lnPp7h3gIis04/t7UzEBwETBL+HO+6jH8CiK8GscTza2rsr+1DRQ06kIM30O3ll7XxLM45CDtIPZ/23yFxcILifHO/ohJvaruw89N9bDx3aBuax3wZpc/nrOAtHJEOjyty9//CG4YJYVydDljmOxkisTV1aax929okPw8sW0MJ2PFCY7LBWBafymrWX0G/qbRPFyr693Uup+OEoaO6VsyED+GCrvSruXdWOQmlV0hGcmouxtRpYN6XZp464eT3LJdHdsWXKPjHHrUnzWeNqek50NC6QnYLxx5JBgivCi8aRxpdY=
