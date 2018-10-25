@@ -23,7 +23,6 @@ export class PersonalInformationPage {
     // this.continents = $$('#continents option');
     this.uploadPhoto = element(by.id('photo'));
     this.downloadLink = element(by.linkText('Test File to Download'));
-
   }
 
   private async selectSex(sex: string): Promise<void> {
