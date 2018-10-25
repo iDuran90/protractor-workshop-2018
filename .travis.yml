@@ -1,10 +1,6 @@
 dist: trusty
 addons:
   chrome: stable
-  sauce_connect: 
-    username: "jduranp"
-  jwt:
-    secure: "sllnB+RR+HJryzAhdMoBJNUyEQhy2ctIr21SWJcsUtnnVj/fkJ9muQ/tfuIG4jkp5o5t9H/nUfFT3V4FcRUfUIftSdxlR+tN+fq4ee2J7kariZER0eiYY3EOdqxHfzLV91iYzkVn6UYk36M+M0tKlmMm3heN/19dJvQ4kS7/J1aumwpbjManbKIo9PpQuML3L9xjvIFI0mkh8Pounf4V93gstR9bRnjYjBo/OGx+C2niNAei5r3h2vHTPYRgIWJ8j1bUZVexpdCcWc5k9QsF3rHs1uvPaFM80MeoRz2GMAbUexpXwQqIQI+YhkZY6JF43o6Wvh3GusfDzjiUQ7bb2BVz5faO8frn0QEZjueGv+Y877mAnDAvQ03LaiUFePiAdshL4B82fZOQNh9KD+4znfocpmXpsHm6ANr40wY06eGQBqb0dPMAhNC3lWaNBahM5HIOsU0+goz8Z7hc+Y4+IQFqLfDDJzp6ChsfH+1C5G0WltnevIf5Af3j0J80/hbsfovfijro2rlkS5oemHZ97yKzPRGr264a0jrMchukcIJ8QaRX7kKidR+VJiQm3Wgpdn3G9Xy/CNLLWM/ZjT4Z+FOKGvGif9LfTHbZvARxbPTpz0Z+2nyrgKjdWGo4JM1TU4scvtXtSBoPLwHBeRkIshoFLDfRhD0eB94UIZT8DnI="
 language: node_js
 node_js:
 - '10'
