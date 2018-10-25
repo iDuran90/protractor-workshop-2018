@@ -4,6 +4,7 @@ export { IFramePage } from './i-frame.page';
 export { MenuContentPage } from './menu-content.page';
 export { OrderSummaryPage } from './order-summary.page';
 export { PaymentStepPage } from './payment-step.page';
+export { PersonalInformationPage } from './personal-information.page';
 export { ProductAddedPage } from './product-added-modal.page';
 export { ProductListPage } from './product-list.page';
 export { ShippingStepPage } from './shipping-step.page';
