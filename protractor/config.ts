@@ -25,6 +25,7 @@ export const config: Config = {
   SELENIUM_PROMISE_MANAGER: false,
   onPrepare: () => {
     browser.ignoreSynchronization = true;
+    browser.driver.manage().window().setSize(800, 600);
     browser.manage().timeouts().implicitlyWait(0);
     reporter();
   },
