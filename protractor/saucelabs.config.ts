@@ -1,6 +1,23 @@
 import { browser, Config } from 'protractor';
 import { reporter } from './helpers/reporter';
 
+const firefoxConfig = {
+  browserName: 'firefox',
+  platform: 'linux',
+  name: 'firefox-tests',
+  shardTestFiles: true,
+  maxInstances: 1
+};
+
+const chromeConfig = {
+  browserName: 'chrome',
+  name: 'chrome-tests',
+  shardTestFiles: true,
+  maxInstances: 1
+};
+
+const multiCapabilities = [chromeConfig, firefoxConfig];
+
 export const config: Config = {
   framework: 'jasmine',
   specs: ['../test/**/*.spec.js'],
@@ -16,12 +33,5 @@ export const config: Config = {
   },
   sauceUser: process.env.SAUCE_USERNAME,
   sauceKey: process.env.SAUCE_ACCESS_KEY,
-  capabilities: {
-    name: 'UI Workshop',
-    browserName: 'chrome',
-    chromeOptions: {
-      args: ['disable-infobars=true', '--window-size=800,600'],
-      prefs: { credentials_enable_service: false }
-    }
-  }
+  multiCapabilities
 };
