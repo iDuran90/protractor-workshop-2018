@@ -29,8 +29,9 @@ export const config: Config = {
     browser.manage().timeouts().implicitlyWait(0);
     reporter();
   },
-  multiCapabilities,
   jasmineNodeOpts: {
     defaultTimeoutInterval: 120000
-  }
+  },
+  seleniumAddress: 'http://localhost:4444/wd/hub',
+  multiCapabilities
 };
